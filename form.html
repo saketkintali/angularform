@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular Form</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div ng-controller="MainCtrl as mctrl">
+
+    <form novalidate name="myform">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" ng-model="mctrl.username" placeholder="Enter your username" required ng-minlength="2" ng-maxlength="10">
+            <div ng-messages="myform.username.$error" class="errors" ng-if="myform.username.$dirty">
+                <p ng-message="required">Username is required</p>
+                <p ng-message="minlength">Username should be more than 1 chars</p>
+                <p ng-message="maxlength">Username should be less than 11 chars</p>
+            </div>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" ng-model="mctrl.email" placeholder="Enter your Email" required>
+            <div ng-messages="myform.email.$error" class="errors" ng-if="myform.email.$dirty">
+                <p ng-message="required">Email is required</p>
+                <p ng-message="email">Email is invalid</p>
+            </div>
+        </div>
+
+        <div>
+            <label>ZIP</label>
+            <input type="text" name="zip" ng-model="mctrl.zip" placeholder="Enter your ZIP" required ng-pattern="/^[0-9]{5}$/">
+            <div ng-messages="myform.zip.$error" class="errors" ng-if="myform.zip.$dirty">
+                <p ng-message="required">ZIP is required</p>
+                <p ng-message="pattern">ZIP must have 5 digits</p>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+
+
+<script src="angular.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-messages.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-messages.min.js"></script>
+<script src="angular-messages.js"></script>
+<script src="myapp.js"></script>
+</body>
+</html>

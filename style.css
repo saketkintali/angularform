@@ -1,0 +1,20 @@
+.errors {
+    color:red;
+    font-size: 0.9em;
+    margin-left: 100px;
+}
+
+
+label {
+    float: left;
+    width: 100px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin-bottom: 10px;
+}
